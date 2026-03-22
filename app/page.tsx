@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, FormEvent } from "react";
-import { Copy, ArrowRight, CheckCircle2, MessageSquare, Phone, Mail, ChevronRight, MessageCircle, BarChart3, Users, Headphones, MonitorSmartphone, Loader2 } from "lucide-react";
+import { Copy, ArrowRight, CheckCircle2, MessageSquare, Phone, Mail, ChevronRight, MessageCircle, BarChart3, Users, Headphones, MonitorSmartphone, Loader2, Globe, ShoppingCart, MousePointer, RefreshCw } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
 import * as THREE from "three";
@@ -173,29 +173,7 @@ export default function Portfolio() {
     error: false
   });
 
-  const [selectedServices, setSelectedServices] = useState<string[]>([]);
-  
-  const handleServiceToggle = (serviceId: string) => {
-    setSelectedServices(prev => 
-      prev.includes(serviceId) 
-        ? prev.filter(id => id !== serviceId)
-        : [...prev, serviceId]
-    );
-  };
 
-  const handleSelectPackage = () => {
-    const servicesList = selectedServices.length === 0 
-      ? "" 
-      : `I'm interested in: ${selectedServices.join(', ')}`;
-      
-    setFormData(prev => ({
-      ...prev,
-      message: servicesList
-    }));
-    
-    // Smooth scroll to contact section
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -233,7 +211,8 @@ export default function Portfolio() {
           Anshul<span className="text-[#2563ff]">.</span>
         </div>
         <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
-          <a href="#services" className="hover:text-white transition-colors magnetic">Services</a>
+          <a href="#ai-automation" className="hover:text-white transition-colors magnetic">AI Automation</a>
+          <a href="#web-design" className="hover:text-white transition-colors magnetic">Web Design</a>
           <a href="#work" className="hover:text-white transition-colors magnetic">Work</a>
           <a href="#process" className="hover:text-white transition-colors magnetic">Process</a>
         </div>
@@ -263,8 +242,8 @@ export default function Portfolio() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-6"
           >
-            Your Business On <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563ff] to-cyan-400">Autopilot.</span><br />
-            Powered by AI.
+            AI Automation & <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563ff] to-cyan-400">Website Development.</span>
           </motion.h1>
 
           <motion.p
@@ -273,7 +252,7 @@ export default function Portfolio() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl text-gray-400 max-w-2xl mb-12"
           >
-            I build custom AI solutions that automate your most time-consuming tasks, generate leads on autopilot, and scale your operations 24/7.
+            Two powerful services. One expert. Built custom for your business.
           </motion.p>
 
           <motion.div
@@ -282,7 +261,7 @@ export default function Portfolio() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto z-20"
           >
-            <a href="#services" className="magnetic flex items-center justify-center gap-2 px-8 py-4 bg-[#2563ff] hover:bg-[#1a4acc] rounded-full font-medium transition-all group">
+            <a href="#ai-automation" className="magnetic flex items-center justify-center gap-2 px-8 py-4 bg-[#2563ff] hover:bg-[#1a4acc] rounded-full font-medium transition-all group">
               Explore Services
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
@@ -327,7 +306,7 @@ export default function Portfolio() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-32 px-6 relative z-20">
+      <section id="ai-automation" className="py-32 px-6 relative z-20">
         <div className="absolute top-0 left-0 w-full h-full bg-[#2563ff]/5 blur-[150px] pointer-events-none rounded-full transform -translate-y-1/2"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
@@ -437,83 +416,80 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Build Your Package Section */}
-      <section id="pricing" className="py-32 px-6 relative z-20 bg-[#020818]">
-        <div className="max-w-7xl mx-auto">
+      {/* Web Design Section */}
+      <section id="web-design" className="py-32 px-6 relative z-20 bg-[#020818]">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#2563ff]/10 blur-[150px] pointer-events-none rounded-full transform -translate-y-1/2 translate-x-1/2"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-16 md:mb-24 text-center"
+            className="mb-16 md:mb-24"
           >
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">Build Your <span className="text-[#2563ff]">Custom Package.</span></h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">Choose the services your business needs. Mix and match — no fixed pricing, every package is tailored to you.</p>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">Website <span className="text-[#2563ff]">Development.</span></h2>
+            <p className="text-xl text-gray-400 max-w-2xl">High-performance custom web solutions designed to scale your brand and maximize conversions.</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <div className="grid md:grid-cols-2 gap-6">
             {[
-              { id: "AI Website Chatbot", icon: <MessageSquare className="w-5 h-5 mx-auto" /> },
-              { id: "AI Lead Qualifier", icon: <Users className="w-5 h-5 mx-auto" /> },
-              { id: "WhatsApp Bot", icon: <MessageCircle className="w-5 h-5 mx-auto" /> },
-              { id: "Social Media Automation", icon: <BarChart3 className="w-5 h-5 mx-auto" /> },
-              { id: "Customer Support Bot", icon: <Headphones className="w-5 h-5 mx-auto" /> },
-              { id: "AI Calling Bot", icon: <Phone className="w-5 h-5 mx-auto" /> }
-            ].map((service, i) => {
-              const isSelected = selectedServices.includes(service.id);
-              return (
-                <motion.div
-                  key={service.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  onClick={() => handleServiceToggle(service.id)}
-                  className={`magnetic cursor-pointer p-6 rounded-2xl border transition-all duration-300 flex items-center gap-4 ${isSelected ? 'bg-[#2563ff]/10 border-[#2563ff] shadow-[0_0_20px_rgba(37,99,255,0.2)]' : 'bg-white/[0.02] border-white/10 hover:border-white/30'}`}
-                >
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-colors ${isSelected ? 'bg-[#2563ff] text-white' : 'bg-white/5 text-gray-400'}`}>
+              {
+                title: "Custom Website Design",
+                desc: "Stunning, fast, mobile-responsive websites built from scratch to match your brand.",
+                icon: <Globe className="w-6 h-6 text-[#2563ff]" />,
+                tags: ["Custom Design", "Mobile Responsive", "Fast Loading"]
+              },
+              {
+                title: "E-Commerce Store",
+                desc: "Full online stores with payment integration, product management and order tracking.",
+                icon: <ShoppingCart className="w-6 h-6 text-[#2563ff]" />,
+                tags: ["Payment Gateway", "Product Management", "Analytics"]
+              },
+              {
+                title: "Landing Page",
+                desc: "High-converting landing pages designed to turn visitors into paying customers.",
+                icon: <MousePointer className="w-6 h-6 text-[#2563ff]" />,
+                tags: ["Conversion Optimized", "A/B Testing", "Fast Build"]
+              },
+              {
+                title: "Website Redesign",
+                desc: "Transform your outdated website into a modern, professional online presence.",
+                icon: <RefreshCw className="w-6 h-6 text-[#2563ff]" />,
+                tags: ["Modern Design", "SEO Friendly", "Brand Refresh"]
+              }
+            ].map((service, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="group p-8 md:p-10 rounded-3xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-[#2563ff]/30 transition-all duration-500 flex flex-col h-full cursor-pointer relative overflow-hidden magnetic"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#2563ff]/10 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="flex flex-col sm:flex-row gap-6 mb-8">
+                  <div className="w-14 h-14 shrink-0 rounded-2xl bg-[#2563ff]/10 border border-[#2563ff]/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#2563ff]/20 group-hover:border-[#2563ff]/30 transition-all duration-500">
                     {service.icon}
                   </div>
-                  <div className="flex-grow">
-                    <h3 className={`font-bold text-lg transition-colors ${isSelected ? 'text-white' : 'text-gray-300'}`}>{service.id}</h3>
+                  <div>
+                    <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
+                    <p className="text-gray-400 leading-relaxed">{service.desc}</p>
                   </div>
-                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${isSelected ? 'border-[#2563ff] bg-[#2563ff]' : 'border-white/20'}`}>
-                    {isSelected && <CheckCircle2 className="w-4 h-4 text-white" />}
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto bg-gradient-to-br from-[#0a1530] to-[#020818] border border-[#2563ff]/30 p-8 md:p-12 rounded-3xl relative overflow-hidden shadow-[0_0_50px_rgba(37,99,255,0.1)]"
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#2563ff]/20 blur-[100px] rounded-full pointer-events-none"></div>
-            
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
-              <div>
-                <p className="text-gray-400 font-medium mb-2 uppercase tracking-wide text-sm">Selections</p>
-                <div className="flex items-end gap-3">
-                  <h3 className="text-4xl sm:text-5xl font-bold tracking-tighter">
-                    {selectedServices.length} {selectedServices.length === 1 ? 'Service' : 'Services'}
-                  </h3>
                 </div>
-                <p className="text-sm text-gray-500 mt-4">
-                  {selectedServices.length === 0 ? "Select services above to build a custom package." : "Selected."}
-                </p>
-              </div>
-              
-              <button 
-                onClick={handleSelectPackage}
-                disabled={selectedServices.length === 0}
-                className="magnetic w-full md:w-auto px-8 py-5 bg-[#2563ff] disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed hover:bg-[#1a4acc] text-white font-bold rounded-2xl transition-all shadow-[0_0_20px_rgba(37,99,255,0.3)] hover:shadow-[0_0_30px_rgba(37,99,255,0.5)] transform hover:-translate-y-1 text-lg whitespace-nowrap"
-              >
-                Request Custom Quote
-              </button>
-            </div>
-          </motion.div>
+
+                <div className="mt-auto pt-6 border-t border-white/5">
+                  <div className="flex flex-wrap gap-2">
+                    {service.tags.map(tag => (
+                      <span key={tag} className="px-3 py-1 text-xs font-medium bg-[#2563ff]/5 text-gray-300 border border-white/5 rounded-full group-hover:border-[#2563ff]/20 transition-colors">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
