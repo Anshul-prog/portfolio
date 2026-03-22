@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState, FormEvent } from "react";
-import { CheckCircle2, MessageSquare, Phone, Mail, MessageCircle, BarChart3, Users, Headphones, MonitorSmartphone, Globe, ShoppingCart, MousePointer, Layout, RefreshCw, Loader2 } from "lucide-react";
+import { CheckCircle2, MessageSquare, Phone, Mail, MessageCircle, BarChart2, BarChart3, Users, Headphones, MonitorSmartphone, Monitor, Globe, ShoppingCart, MousePointer, Layout, RefreshCw, Loader2 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { GlowCard } from "./../components/ui/spotlight-card";
-import { ContainerScroll } from "./../components/ui/container-scroll-animation";
-import { ShootingStars } from "./../components/ui/shooting-stars";
+import { FloatingShapesBackground } from "./../components/ui/shape-landing-hero";
 import { AnimatedText } from "./../components/ui/animated-shiny-text";
 import { SplineScene } from "./../components/ui/splite";
 import { Spotlight } from "./../components/ui/spotlight";
@@ -109,38 +107,26 @@ export default function Portfolio() {
   };
 
   const aiServicesData = [
-    { title: "AI Website Chatbot", desc: "Turn visitors into customers instantly with an intelligent agent.", icon: <Globe className="w-8 h-8 text-white mb-4" /> },
-    { title: "AI Lead Qualifier", desc: "Automatically filter and score prospects directly.", icon: <CheckCircle2 className="w-8 h-8 text-white mb-4" /> },
-    { title: "WhatsApp Bot", desc: "Engage customers with automated WhatsApp sales flows.", icon: <MessageCircle className="w-8 h-8 text-white mb-4" /> },
-    { title: "Social Media Automation", desc: "Scale globally with systems that interact across tracking channels.", icon: <BarChart3 className="w-8 h-8 text-white mb-4" /> },
-    { title: "Customer Support Bot", desc: "Resolve 80% of support tickets instantly around the clock.", icon: <Headphones className="w-8 h-8 text-white mb-4" /> },
-    { title: "AI Calling Bot", desc: "Siri on steroids for your sales calls and inbound responses.", icon: <Phone className="w-8 h-8 text-white mb-4" /> }
+    { title: "AI Website Chatbot", desc: "Turn visitors into customers instantly with an intelligent agent.", icon: <Globe className="w-5 h-5 text-white" /> },
+    { title: "AI Lead Qualifier", desc: "Automatically filter and score prospects directly.", icon: <CheckCircle2 className="w-5 h-5 text-white" /> },
+    { title: "WhatsApp Bot", desc: "Engage customers with automated WhatsApp sales flows.", icon: <MessageCircle className="w-5 h-5 text-white" /> },
+    { title: "Social Media Automation", desc: "Scale globally with systems that interact across tracking channels.", icon: <BarChart2 className="w-5 h-5 text-white" /> },
+    { title: "Customer Support Bot", desc: "Resolve 80% of support tickets instantly around the clock.", icon: <Headphones className="w-5 h-5 text-white" /> },
+    { title: "AI Calling Bot", desc: "Siri on steroids for your sales calls and inbound responses.", icon: <Phone className="w-5 h-5 text-white" /> }
   ];
 
   const webServicesData = [
-    { title: "Custom Website Design", desc: "Stunning, fast websites built from scratch to match your brand.", icon: <MonitorSmartphone className="w-8 h-8 text-white mb-4" /> },
-    { title: "E-Commerce Store", desc: "Online stores with payment integration and product management.", icon: <ShoppingCart className="w-8 h-8 text-white mb-4" /> },
-    { title: "Landing Page", desc: "High-converting landing pages to turn visitors into paying customers.", icon: <Layout className="w-8 h-8 text-white mb-4" /> },
-    { title: "Website Redesign", desc: "Transform your outdated website into a modern online presence.", icon: <RefreshCw className="w-8 h-8 text-white mb-4" /> }
+    { title: "Custom Website Design", desc: "Stunning, fast websites built from scratch to match your brand.", icon: <Monitor className="w-5 h-5 text-white" /> },
+    { title: "E-Commerce Store", desc: "Online stores with payment integration and product management.", icon: <ShoppingCart className="w-5 h-5 text-white" /> },
+    { title: "Landing Page", desc: "High-converting landing pages to turn visitors into paying customers.", icon: <Layout className="w-5 h-5 text-white" /> },
+    { title: "Website Redesign", desc: "Transform your outdated website into a modern online presence.", icon: <RefreshCw className="w-5 h-5 text-white" /> }
   ];
 
   return (
     <div ref={mainRef} className="text-white selection:bg-[#2563ff] selection:text-white font-manrope relative min-h-screen bg-[#000000]">
       
       {/* Background Layer completely behind layout */}
-      <div className="fixed inset-0 z-0 bg-black overflow-hidden pointer-events-none fixed-bg">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.05)_0%,rgba(0,0,0,0)_80%)]" />
-        <ShootingStars
-          starColor="#9E00FF"
-          trailColor="#2EB9DF"
-          minSpeed={8}
-          maxSpeed={15}
-          minDelay={3000}
-          maxDelay={6000}
-          starWidth={8}
-          starHeight={1}
-        />
-      </div>
+      <FloatingShapesBackground />
 
       <main className="relative z-10">
       <MagneticCursor />
@@ -202,64 +188,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Container Scroll Dashboard Mockup */}
-      <section className="relative z-20 py-20 bg-transparent px-4 md:px-8 lg:px-16 overflow-hidden">
-        <ContainerScroll 
-          titleComponent={
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-black font-syne text-white mb-10 md:mb-20 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] tracking-tight">
-              See Your Business <br /> Transform
-            </h2>
-          }
-        >
-          {/* Mockup UI Inner Container */}
-          <div className="w-full h-full bg-[#111111] p-4 md:p-8 flex flex-col gap-4 md:gap-6 font-manrope">
-            <div className="flex items-center justify-between border-b border-[#333333] pb-4 md:pb-6">
-              <div className="flex gap-2 md:gap-4 items-center">
-                 <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-red-500"></div>
-                 <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-yellow-500"></div>
-                 <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-green-500"></div>
-                 <div className="text-white font-bold font-syne ml-2 md:ml-4 text-xs md:text-sm tracking-widest uppercase hidden sm:block">Admin Dashboard</div>
-              </div>
-              <div className="flex gap-2 md:gap-4">
-                 <div className="h-6 w-16 md:h-8 md:w-24 bg-[#222222] rounded-md animate-pulse"></div>
-                 <div className="h-6 w-6 md:h-8 md:w-8 rounded-full bg-[#2563ff] animate-pulse"></div>
-              </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 flex-grow">
-               <div className="md:col-span-2 flex flex-col gap-4 md:gap-6">
-                  <div className="h-24 md:h-40 bg-[#1a1a1a] rounded-xl border border-[#333333] p-4 md:p-6 flex flex-col justify-between">
-                     <div className="text-[#888888] text-[10px] md:text-sm uppercase tracking-widest font-space-grotesk">Conversations Automated</div>
-                     <div className="text-3xl md:text-5xl font-black text-white font-syne">14,208</div>
-                  </div>
-                  <div className="flex-grow bg-[#1a1a1a] rounded-xl border border-[#333333] p-4 md:p-6 space-y-4 overflow-hidden relative">
-                    <div className="text-[#888888] text-[10px] md:text-sm uppercase tracking-widest font-space-grotesk mb-2 md:mb-4">Live Agent Logs</div>
-                    {[1,2,3].map(i => (
-                      <div key={i} className="flex gap-3 md:gap-4 items-center opacity-80">
-                         <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#333333]"></div>
-                         <div className="space-y-2 flex-grow">
-                           <div className="h-1.5 md:h-2 bg-[#444444] rounded w-1/4"></div>
-                           <div className="h-1.5 md:h-2 bg-[#222222] rounded w-3/4"></div>
-                         </div>
-                      </div>
-                    ))}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent pointer-events-none"></div>
-                  </div>
-               </div>
-               <div className="flex flex-col gap-4 md:gap-6 hidden md:flex">
-                  <div className="h-1/2 bg-gradient-to-br from-[#2563ff]/20 to-[#1a1a1a] rounded-xl border border-[#2563ff]/30 p-4 md:p-6 flex flex-col justify-between shadow-[0_0_30px_rgba(37,99,255,0.1)]">
-                     <div className="text-[#888888] text-[10px] md:text-sm uppercase tracking-widest font-space-grotesk">Leads Captured</div>
-                     <div className="text-3xl md:text-5xl font-black text-white font-syne tracking-tight">4,812</div>
-                  </div>
-                  <div className="h-1/2 bg-[#1a1a1a] rounded-xl border border-[#333333] p-4 md:p-6 flex items-center justify-center">
-                     <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-8 border-t-[#2563ff] border-r-[#2563ff] border-b-[#333333] border-l-[#333333] rotate-45"></div>
-                  </div>
-               </div>
-            </div>
-          </div>
-        </ContainerScroll>
-      </section>
-
-      {/* AI Automation Services -> Glow Cards */}
+      {/* AI Automation Services -> Lightweight Cards */}
       <section id="ai-automation" className="py-20 md:py-32 px-4 md:px-8 lg:px-16 relative z-20 bg-transparent border-t border-[#333333]/30">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 md:mb-20 text-center gsap-fade-up">
@@ -268,28 +197,19 @@ export default function Portfolio() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gsap-fade-up">
              {aiServicesData.map((service, i) => (
-                <GlowCard 
-                  key={i} 
-                  glowColor="blue"
-                  customSize={true}
-                  width="100%"
-                  height="280px"
-                  className="bg-[#111111] hover:shadow-2xl transition-all duration-300 border-[#333333] border"
-                >
-                  <div className="flex flex-col h-full z-20 pointer-events-none p-2">
+                <div key={i} className="group relative bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.06] hover:border-white/[0.15] transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-white/[0.05] border border-white/[0.08] flex items-center justify-center mb-4 group-hover:bg-indigo-500/20 group-hover:border-indigo-500/30 transition-all duration-300">
                     {service.icon}
-                    <h3 className="text-xl md:text-2xl font-bold font-syne text-white mb-3 mt-auto">{service.title}</h3>
-                    <p className="font-sans font-normal service-description leading-relaxed">
-                      {service.desc}
-                    </p>
                   </div>
-                </GlowCard>
+                  <h3 className="text-white font-semibold text-lg mb-2">{service.title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">{service.desc}</p>
+                </div>
              ))}
           </div>
         </div>
       </section>
 
-      {/* Web Design Section -> Glow Cards */}
+      {/* Web Design Section -> Lightweight Cards */}
       <section id="web-design" className="py-20 md:py-32 px-4 md:px-8 lg:px-16 relative z-20 bg-transparent border-t border-[#333333]/30">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 md:mb-20 text-center gsap-fade-up">
@@ -298,22 +218,13 @@ export default function Portfolio() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center max-w-5xl mx-auto gsap-fade-up">
             {webServicesData.map((service, i) => (
-               <GlowCard 
-                 key={i} 
-                 glowColor="purple"
-                 customSize={true}
-                 width="100%"
-                 height="280px"
-                 className="bg-[#111111] hover:shadow-2xl transition-all duration-300 border-[#333333] border"
-               >
-                  <div className="flex flex-col h-full z-20 pointer-events-none p-2">
+                <div key={i} className="group relative bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.06] hover:border-white/[0.15] transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-white/[0.05] border border-white/[0.08] flex items-center justify-center mb-4 group-hover:bg-indigo-500/20 group-hover:border-indigo-500/30 transition-all duration-300">
                     {service.icon}
-                    <h3 className="text-xl md:text-2xl font-bold font-syne text-white mb-3 mt-auto">{service.title}</h3>
-                    <p className="font-sans font-normal service-description leading-relaxed">
-                      {service.desc}
-                    </p>
                   </div>
-               </GlowCard>
+                  <h3 className="text-white font-semibold text-lg mb-2">{service.title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">{service.desc}</p>
+                </div>
             ))}
           </div>
         </div>
