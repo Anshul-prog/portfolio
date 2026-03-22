@@ -17,12 +17,45 @@
   --font-space-grotesk: var(--font-space-grotesk);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+.fixed-bg {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-manrope), Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
   overflow-x: hidden;
-  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+p, li, span {
+  color: rgba(255,255,255,0.85);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.service-description {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
 }
 
 @keyframes spotlight {
