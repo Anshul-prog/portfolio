@@ -671,17 +671,17 @@ export default function Portfolio() {
             </p>
 
             <div className="space-y-6">
-              <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-[#2563ff] hover:bg-white/10 transition-all group magnetic">
+              <a href="https://wa.me/918076451049" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-[#2563ff] hover:bg-white/10 transition-all group magnetic">
                 <div className="w-12 h-12 bg-[#2563ff]/10 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-[#2563ff]/20 transition-all">
                   <MessageCircle className="w-5 h-5 text-[#2563ff]" />
                 </div>
                 <div>
                   <div className="text-sm text-gray-400 mb-1">Fastest response</div>
-                  <div className="font-semibold text-lg group-hover:text-white transition-colors">WhatsApp: +91 8076451049</div>
+                  <div className="font-semibold text-lg group-hover:text-white transition-colors">+91 8076451049</div>
                 </div>
               </a>
 
-              <a href="mailto:hello@anshul.com" className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-[#2563ff] hover:bg-white/10 transition-all group magnetic">
+              <a href="mailto:yanshul7162005@gmail.com" className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-[#2563ff] hover:bg-white/10 transition-all group magnetic">
                 <div className="w-12 h-12 bg-[#2563ff]/10 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-[#2563ff]/20 transition-all">
                   <Mail className="w-5 h-5 text-[#2563ff]" />
                 </div>
@@ -691,7 +691,7 @@ export default function Portfolio() {
                 </div>
               </a>
 
-              <a href="tel:+91XXXXXXXXXX" className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-[#2563ff] hover:bg-white/10 transition-all group magnetic">
+              <a href="tel:+918076451049" className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-[#2563ff] hover:bg-white/10 transition-all group magnetic">
                 <div className="w-12 h-12 bg-[#2563ff]/10 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-[#2563ff]/20 transition-all">
                   <Phone className="w-5 h-5 text-[#2563ff]" />
                 </div>
