@@ -1,24 +1,15 @@
 import type { Metadata } from "next";
-import { Syne, Manrope, Space_Grotesk } from "next/font/google";
+import { Figtree } from "next/font/google";
 import "./globals.css";
-
-const syne = Syne({
-  variable: "--font-syne",
+import SmoothScroll from "@/components/smooth-scroll";
+const figtree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
-});
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
-  title: "Anshul. | Premium Digital Agency",
+  title: "Anshul. | AI Automation & Web Development",
   description: "AI Automation & Website Development. Two powerful services. One expert.",
 };
 
@@ -29,10 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body
-        className={`${syne.variable} ${manrope.variable} ${spaceGrotesk.variable} antialiased`}
-      >
-        {children}
+      <body className={`${figtree.variable} antialiased`}>
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 import { GlowingEffect } from "./glowing-effect";
-
+import { Card3DWrapper } from "./3d-card-wrapper";
 export const BentoGrid = ({
   className,
   children,
@@ -28,6 +28,7 @@ export const BentoCard = ({
   header,
   icon,
   glow = true,
+  bgImage,
 }: {
   className?: string;
   title?: string | React.ReactNode;
@@ -35,18 +36,25 @@ export const BentoCard = ({
   header?: React.ReactNode;
   icon?: React.ReactNode;
   glow?: boolean;
+  bgImage?: string;
 }) => {
   return (
-    <div
+    <Card3DWrapper
       className={cn(
-        "relative rounded-[1.5rem] bg-[#111111] overflow-hidden p-8 flex flex-col group/bento transition duration-500 hover:shadow-2xl border border-[#333333]",
+        "relative rounded-[1.5rem] bg-transparent overflow-hidden p-8 flex flex-col group/bento transition duration-500 hover:shadow-2xl border border-white/[0.08]",
         className
       )}
     >
-      {glow && <GlowingEffect spread={40} proximity={64} className="z-10" />}
-      
+      {/* Background image with dark overlay */}
+      {bgImage && (
+        <>
+          <img src={bgImage} alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
+          <div className="absolute inset-0 bg-black/[0.65] z-[1]" />
+        </>
+      )}
+
       {/* Background radial soft light */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-transparent opacity-50 z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-transparent opacity-50 z-[2]"></div>
 
       <div className="z-20 flex-grow">
         {header && <div className="mb-4">{header}</div>}
@@ -59,6 +67,6 @@ export const BentoCard = ({
           {description}
         </div>
       </div>
-    </div>
+    </Card3DWrapper>
   );
 };

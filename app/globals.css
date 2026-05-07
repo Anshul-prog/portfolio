@@ -10,11 +10,9 @@
   --color-grey-dark: #111111;
   --color-grey-mid: #1a1a1a;
   --color-grey-light: #333333;
-  --color-electric: #2563ff;
-  
-  --font-syne: var(--font-syne);
-  --font-manrope: var(--font-manrope);
-  --font-space-grotesk: var(--font-space-grotesk);
+  --color-purple: #A855F7;
+  --color-purple-dark: #7C3AED;
+  --font-figtree: var(--font-figtree);
 }
 
 html {
@@ -23,46 +21,109 @@ html {
 
 * {
   -webkit-font-smoothing: antialiased;
-}
-
-.fixed-bg {
-  transform: translateZ(0);
-  backface-visibility: hidden;
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.01em;
+  font-family: var(--font-figtree), 'Figtree', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
   line-height: 1.6;
+  letter-spacing: -0.02em;
   overflow-x: hidden;
 }
 
-h1, h2, h3 {
-  font-family: 'Syne', sans-serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-figtree), 'Figtree', sans-serif;
   font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+p {
+  font-family: var(--font-figtree), 'Figtree', sans-serif;
+  font-weight: 500;
   letter-spacing: -0.02em;
-  line-height: 1.2;
 }
 
-p, li, span {
-  color: rgba(255,255,255,0.85);
-  font-size: 1rem;
-  line-height: 1.7;
+/* Override old font utility classes to use Figtree */
+.font-syne,
+.font-manrope,
+.font-space-grotesk {
+  font-family: var(--font-figtree), 'Figtree', sans-serif !important;
 }
 
-.service-description {
-  color: rgba(255,255,255,0.7);
-  font-size: 0.9rem;
-}
-
+/* ── Spotlight ───────────────────────────────────────────── */
 @keyframes spotlight {
-  0% { opacity: 0; transform: translate(-72%, -62%) scale(0.5); }
+  0%   { opacity: 0; transform: translate(-72%, -62%) scale(0.5); }
   100% { opacity: 1; transform: translate(-50%, -40%) scale(1); }
 }
-
 .animate-spotlight {
   animation: spotlight 2s ease 0.75s 1 forwards;
+}
+
+/* ── Orb float & pulse ───────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+.orb-float { animation: float 7s ease-in-out infinite; }
+
+@keyframes orb-pulse {
+  0%, 100% { opacity: 0.75; }
+  50%       { opacity: 1; }
+}
+.orb-pulse { animation: orb-pulse 5s ease-in-out infinite; }
+
+/* ── Social proof marquee ────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+/* ── Pricing popular card purple pulse ───────────────────── */
+@keyframes purple-border-pulse {
+  0%, 100% {
+    border-color: rgba(168, 85, 247, 0.45);
+    box-shadow: 0 0 24px rgba(168, 85, 247, 0.18), 0 0 60px rgba(168, 85, 247, 0.06);
+  }
+  50% {
+    border-color: rgba(168, 85, 247, 0.95);
+    box-shadow: 0 0 48px rgba(168, 85, 247, 0.45), 0 0 100px rgba(168, 85, 247, 0.18);
+  }
+}
+.purple-glow-border { animation: purple-border-pulse 3s ease-in-out infinite; }
+
+/* ── Scroll-triggered reveal animations ──────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── Mobile ──────────────────────────────────────────────── */
+@media (max-width: 899px) {
+  body, html {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  #contact .max-w-7xl.mx-auto.grid {
+    grid-template-columns: 1fr !important;
+  }
 }
