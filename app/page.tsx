@@ -9,6 +9,7 @@ import { Button } from "./../components/ui/button";
 import { GlowCard } from "./../components/ui/spotlight-card";
 import { BentoGrid, BentoCard } from "./../components/ui/bento-grid";
 import { Card3DWrapper } from "./../components/ui/3d-card-wrapper";
+import ROISection from "./../components/ROISection";
 
 if (typeof window !== "undefined") { gsap.registerPlugin(ScrollTrigger); }
 
@@ -434,6 +435,9 @@ export default function Portfolio() {
             </div>
           </div>
         </section>
+
+        {/* ROI */}
+        <ROISection />
 
         {/* TESTIMONIALS */}
         <section id="testimonials" className="py-20 md:py-32 px-4 md:px-8 lg:px-16 border-t border-white/[0.06] relative z-20">
