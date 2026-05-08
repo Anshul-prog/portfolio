@@ -48,13 +48,13 @@ export const BentoCard = ({
       {/* Background image with dark overlay */}
       {bgImage && (
         <>
-          <img src={bgImage} alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
-          <div className="absolute inset-0 bg-black/[0.65] z-[1]" />
+          <img src={bgImage} alt="" className="absolute inset-0 w-full h-full object-cover z-[11]" />
+          <div className="absolute inset-0 bg-black/[0.65] z-[12]" />
         </>
       )}
 
       {/* Background radial soft light */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-transparent opacity-50 z-[2]"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-transparent opacity-50 z-[13]"></div>
 
       <div className="z-20 flex-grow">
         {header && <div className="mb-4">{header}</div>}

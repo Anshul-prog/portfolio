@@ -340,7 +340,7 @@ export default function Portfolio() {
         </section>
 
         {/* PRICING */}
-        <section id="pricing" className="py-20 md:py-32 px-4 md:px-8 lg:px-16 border-t border-white/[0.06] relative z-20">
+        <section id="pricing" className="py-20 md:py-32 px-4 md:px-8 lg:px-16 border-t border-white/[0.06] relative z-20 mt-12 md:mt-24">
           <div className="max-w-7xl mx-auto">
             <div className="mb-12 md:mb-20 text-center gsap-fade-up">
               <p className="text-xs font-space-grotesk tracking-widest uppercase text-purple-400 mb-4">Investment</p>
